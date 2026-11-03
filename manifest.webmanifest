@@ -1,0 +1,11 @@
+{
+  "name": "BrowOS Creative Suite",
+  "short_name": "CreativeSuite",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1e1e24",
+  "theme_color": "#2196F3",
+  "icons": [
+    { "src": "apps/photocraft/icon.png", "sizes": "64x64", "type": "image/png" }
+  ]
+}

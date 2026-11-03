@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BrowOS Creative Suite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#1e1e24;color:#eee;}
+header{padding:24px;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:24px;max-width:1200px;margin:0 auto;}
+.card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:16px;text-align:center;}
+.card img{width:48px;height:48px;margin-bottom:8px;}
+.card a{color:#fff;text-decoration:none;font-weight:600;}
+</style>
+</head>
+<body>
+<header>
+<h1>BrowOS Creative Suite</h1>
+<p>Browser-based creative applications. No backend required.</p>
+</header>
+<div class="grid">
+<!-- apps inserted -->
+</div>
+<script>
+const apps = [
+["PhotoCraft","apps/photocraft/index.html","apps/photocraft/icon.png"],
+["VectorCraft","apps/vectorcraft/index.html","apps/vectorcraft/icon.png"],
+["FilmCraft","apps/filmcraft/index.html","apps/filmcraft/icon.png"],
+["LightCraft","apps/lightcraft/index.html","apps/lightcraft/icon.png"],
+["PdfCraft","apps/pdfcraft/index.html","apps/pdfcraft/icon.png"],
+["EffectCraft","apps/effectcraft/index.html","apps/effectcraft/icon.png"],
+["DesignCraft","apps/designcraft/index.html","apps/designcraft/icon.png"],
+["FigCraft","apps/figcraft/index.html","apps/figcraft/icon.png"],
+["WordCraft","apps/wordcraft/index.html","apps/wordcraft/icon.png"],
+["SoundCraft","apps/soundcraft/index.html","apps/soundcraft/icon.png"],
+["DeckCraft","apps/deckcraft/index.html","apps/deckcraft/icon.png"],
+["CADCraft","apps/cadcraft/index.html","apps/cadcraft/icon.png"],
+["GridCraft","apps/gridcraft/index.html","apps/gridcraft/icon.png"],
+["TextureCraft","apps/texturecraft/index.html","apps/texturecraft/icon.png"],
+["Craft Anything","apps/craft-anything/index.html","apps/craft-anything/icon.png"]
+];
+const grid = document.querySelector('.grid');
+apps.forEach(([name,url,icon])=>{
+  const card = document.createElement('div');
+  card.className='card';
+  card.innerHTML = `<img src="${icon}" alt=""><br><a href="${url}">${name}</a>`;
+  grid.appendChild(card);
+});
+</script>
+<script>
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+</script>
+</body>
+</html>
