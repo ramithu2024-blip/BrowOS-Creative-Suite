@@ -1,4 +1,4 @@
-const CACHE = "creative-suite-v1";
+const CACHE = "creative-suite-v2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).catch(()=>{}));

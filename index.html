@@ -44,7 +44,7 @@ const grid = document.querySelector('.grid');
 apps.forEach(([name,url,icon])=>{
   const card = document.createElement('div');
   card.className='card';
-  card.innerHTML = `<img src="${icon}" alt=""><br><a href="${url}">${name}</a>`;
+  card.innerHTML = `<img src="${icon}" alt=""><br><a href="${url}?v=2">${name}</a>`;
   grid.appendChild(card);
 });
 </script>
