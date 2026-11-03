@@ -12,6 +12,8 @@ self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
+  // Let apps load directly; do not intercept their resources
+  if (url.pathname.includes("/apps/")) return;
   // Don't cache large wasm/part assets aggressively
   if (url.pathname.endsWith(".wasm") || url.pathname.includes(".part-")) return;
   e.respondWith(caches.match(req).then(cached => {
